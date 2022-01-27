@@ -12,6 +12,11 @@ import plateau.Plateau;
  */
 public class OrdinateurAleatoireUnPeuIntelligent extends Joueur{
 
+	/***
+	 * constructeur de ce bot
+	 * @param pseudo pseudonyme du bot
+	 * @param jeton jeton que va utiliser ce bot
+	 */
 	public OrdinateurAleatoireUnPeuIntelligent(String pseudo, Jeton jeton) {
 		super(pseudo, jeton);
 	}

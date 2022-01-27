@@ -10,6 +10,11 @@ import plateau.Plateau;
  */
 public class OrdinateurMinMaxDepth1 extends Joueur{
 
+	/***
+	 * constructeur de ce bot
+	 * @param pseudo pseudonyme du bot
+	 * @param jeton jeton que va utiliser ce bot
+	 */
 	public OrdinateurMinMaxDepth1(String pseudo, Jeton jeton) {
 		super(pseudo, jeton);
 	}
