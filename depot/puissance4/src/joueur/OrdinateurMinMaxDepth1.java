@@ -13,13 +13,13 @@ public class OrdinateurMinMaxDepth1 extends Joueur{
 	public int ChoisirColonne(Plateau plateau) {
 		
 		int choix = choisirMeilleurColonne(plateau);
-		System.out.println("["+ getPseudo() + "] a joué dans la colonne " + choix);
+		System.out.println("["+ getPseudo() + "] a joué dans la colonne " + (choix + 1));
 		return choix;
 	}
 
 	private int choisirMeilleurColonne(Plateau plateau) {
 
-		int max = -1000000000;
+		int max = Integer.MIN_VALUE;
 		int indexMax = -1;
 		
 		//pour toutes les colonnes

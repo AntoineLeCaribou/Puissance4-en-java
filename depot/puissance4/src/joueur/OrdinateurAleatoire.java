@@ -35,7 +35,7 @@ public class OrdinateurAleatoire extends Joueur {
 		int indexRandom = new Random().nextInt(colonnesDisponibles.size());
 		choix = colonnesDisponibles.get(indexRandom);
 		
-		System.out.println("["+ getPseudo() + "] a joué dans la colonne " + choix);
+		System.out.println("["+ getPseudo() + "] a joué dans la colonne " + (choix + 1));
 		
 		return choix;
 	}

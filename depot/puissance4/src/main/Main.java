@@ -8,8 +8,20 @@ import joueur.OrdinateurAleatoireUnPeuIntelligent;
 import joueur.OrdinateurMinMaxDepth1;
 import joueur.OrdinateurMinMaxDepthN;
 
+/***
+ * permet de tester une partie
+ * @author antoi
+ */
 public class Main {
 
+	/***
+	 * on crée deux joueurs
+	 * le joueur1 est un Humain
+	 * le joueur2 est un OrdinateurMinMaxDepthN de profondeur 6
+	 * le joueur qui commence est aléatoire
+	 * on créé ensuite une partie et elle se lance à la création
+	 * @param args obligatoire mais inutilisé
+	 */
 	public static void main(String[] args) {
 		
 		JetonRouge jetonRouge = new JetonRouge();
