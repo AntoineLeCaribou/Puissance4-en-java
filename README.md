@@ -1,13 +1,14 @@
 # Puissance4-en-java
 
-Ce projet est codé en java.
-Il comporte un moteur de jeu puissance 4.
-Il comporte également des bots.
-Il contient d'ailleurs une partie d'intelligence artificielle.
+## programmeur : Antoine Burnel
+
+Résumé
+- Ce projet est codé en java
+- Il comporte un moteur de jeu puissance 4
+- Il comporte également des bot.
 
 Le moteur du jeu :
-Tout le moteur du jeu a été codé par moi même, sans aucune aide extérieur.
-Simplement grâce aux cours de M.Dorbec et M.Jeanpierre (professeur à l'iut grand ouest normandie)
+- Tout le moteur du jeu a été codé par moi même, sans aucune aide extérieur.
 
 Les bots :
 - OrdinateurAleatoire joue dans des colonnes aleatoirement (très mauvais)
@@ -37,4 +38,4 @@ Les classes (pous pouvez sinon consulter la javadoc):
         - OrdinateurMinMaxDepth1 -> [extends Joueur] un bot respectable, même s'il est sûrement battable du premier coup
         - OrdinateurMinMaxDepthN -> [extends Joueur] un bot vraiment difficile, je le bats une fois sur deux (avec n = 6) mais il peut monter jusqu'à 8 sans trop trainer
         
-Merci aux profs de programmation objet de l'iut grand ouest normandie <3
+Merci aux profs de programmation objet de l'iut grand ouest normandie (notamment M.Paul Dorbec et M.Laurent Jeanpierre) <3
