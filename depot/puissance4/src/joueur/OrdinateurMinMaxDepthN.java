@@ -18,7 +18,7 @@ public class OrdinateurMinMaxDepthN extends Joueur {
 	public int ChoisirColonne(Plateau plateau) {
 		
 		int choix = choisirMeilleurColonne(plateau);
-		System.out.println("["+ getPseudo() + "] a joué dans la colonne " + choix);
+		System.out.println("["+ getPseudo() + "] a joué dans la colonne " + (choix + 1));
 		return choix;
 	}
 	

@@ -30,13 +30,13 @@ public class OrdinateurAleatoireUnPeuIntelligent extends Joueur{
 				
 				//sinon c'est un coup gagnant
 				plateau.retirerJeton(positionX);
-				System.out.println("["+ getPseudo() + "] a joué dans la colonne " + positionX);
+				System.out.println("["+ getPseudo() + "] a joué dans la colonne " + (positionX + 1));
 				return positionX;
 			}
 		}
 		
 		int choix = choisirColonneAleatoire(plateau);
-		System.out.println("["+ getPseudo() + "] a joué dans la colonne " + choix);
+		System.out.println("["+ getPseudo() + "] a joué dans la colonne " + (choix + 1));
 		return choix;
 	}
 	
