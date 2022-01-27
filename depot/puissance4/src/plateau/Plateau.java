@@ -7,19 +7,53 @@ import jeton.Jeton;
 import joueur.Gagnant;
 import joueur.Joueur;
 
+/***
+ * modélise le plateau (ou la grille) du puissance 4
+ * elle contient une matrice de jetons
+ * elle permet de placer, retirer et globalement d'intérzgir avec la grille tout en sécurité
+ * @author antoi
+ */
 public class Plateau {
 	
+	/***
+	 * constante qui contient la largeur de la grille
+	 */
 	private final int dimensionX;
+	/***
+	 * constante qui contient la hauteur de la grille
+	 */
 	private final int dimensionY;
 	
+	/***
+	 * la matrice qui contient tous les jetons (et aussi les cases vides)
+	 */
 	private Jeton[][] plateau;
 	
+	/***
+	 * constructeur du plateau, il initialise la grille avec 7 de largeur et 6 de hauteur
+	 */
 	public Plateau() {
 		this.dimensionX = 7;
 		this.dimensionY = 6;
-		this.plateau = new Jeton[getDimensionX()][dimensionY];
+		this.plateau = new Jeton[dimensionX][dimensionY];
 	}
 	
+	/***
+	 * constructeur du plateau, permet d'instancier la grille avec une taille personnalisée
+	 */
+	public Plateau(int dimX, int dimY) {
+		this.dimensionX = dimX;
+		this.dimensionY = dimY;
+		this.plateau = new Jeton[dimensionX][dimensionY];
+	}
+	
+	/***
+	 * permet de placer dans la grille un jeton de notre choix dans la colonne de notre choix
+	 * cette méthode vérifie que cette opération est bien possible
+	 * @param jeton le jeton que l'on souhaite placer dans la colonne
+	 * @param positionX la colonne dans laquelle on veut placer le jeton
+	 * @return vrai si le placement est possible (si la colonne n'est pas vide), faux sinon
+	 */
 	public boolean placerJeton(Jeton jeton, int positionX) {
 		
 		int positionY = peutPlacer(positionX);
@@ -35,6 +69,11 @@ public class Plateau {
 		return true;
 	}
 	
+	/***
+	 * permet de retirer un jeton de la grille, le jeton enlevé est le plus haut
+	 * @param positionX la colonne dans laquelle on veut enlever un jeton
+	 * @return faux si la colonne est vide, vrai sinon
+	 */
 	public boolean retirerJeton(int positionX) {
 		
 		int positionY = peutRetirer(positionX);
@@ -50,6 +89,11 @@ public class Plateau {
 		return true;
 	}
 
+	/***
+	 * teste si on a le droit de retirer un jeton de la grille
+	 * @param positionX la colonne visée par cette opération
+	 * @return -1 si la colonne est vide, la hauteur de jeton le plus haut sinon
+	 */
 	private int peutRetirer(int positionX) {
 
 		//pour toutes les cases de la colonne en descendant
@@ -69,6 +113,11 @@ public class Plateau {
 		return -1;
 	}
 
+	/***
+	 * teste si on peut placer un jeton dans la colonne donnée
+	 * @param positionX la colonne dans laquelle on place le jeton
+	 * @return -1 si la colonne est remplie, la hauteur de l'emplacement le plus bas sinon
+	 */
 	public int peutPlacer(int positionX) {
 		
 		//pour toutes les cases de la colonne
@@ -85,6 +134,9 @@ public class Plateau {
 		return -1;
 	}
 	
+	/***
+	 * affiche dans la console une représentation du plateau en ascii-art
+	 */
 	public void afficherPlateau() {
 		
 		System.out.println("---------------");
@@ -106,6 +158,11 @@ public class Plateau {
 		System.out.println("||           ||");
 	}
 
+	/***
+	 * retourne l'état d'une partie de puissance 4
+	 * @param joueur le joueur que l'on regarde (généralement le joueur actif)
+	 * @return l'état de la partie, cf: la classe Gagnant pour plus d'info
+	 */
 	public Gagnant estFinit(Joueur joueur) {
 		
 		if (joueur == null)
@@ -136,6 +193,11 @@ public class Plateau {
 		return Gagnant.GrilleCompletee;
 	}
 
+	/***
+	 * permet de vérifier que la partie ne possède pas un alignement horizontal de 4 jetons similaires
+	 * @param couleur la couleur des jetons que l'on analyse
+	 * @return vrai si la partie est finit, faux sinon
+	 */
 	private boolean finitHorizontal(Couleur couleur) {
 		
 		//pour toutes les lignes
@@ -160,6 +222,11 @@ public class Plateau {
 		return false;
 	}
 	
+	/***
+	 * permet de vérifier que la partie ne possède pas un alignement diagonal montant de 4 jetons similaires
+	 * @param couleur la couleur des jetons que l'on analyse
+	 * @return vrai si la partie est finit, faux sinon
+	 */
 	private boolean finitDiagonaleMontante(Couleur couleur) {
 		
 		//pour toutes les lignes
@@ -184,6 +251,11 @@ public class Plateau {
 		return false;
 	}
 	
+	/***
+	 * permet de vérifier que la partie ne possède pas un alignement diagonal descendant de 4 jetons similaires
+	 * @param couleur la couleur des jetons que l'on analyse
+	 * @return vrai si la partie est finit, faux sinon
+	 */
 	private boolean finitDiagonaleDescendante(Couleur couleur) {
 		
 		//pour toutes les lignes
@@ -208,6 +280,11 @@ public class Plateau {
 		return false;
 	}
 	
+	/***
+	 * permet de vérifier que la partie ne possède pas un alignement vertical de 4 jetons similaires
+	 * @param couleur la couleur des jetons que l'on analyse
+	 * @return vrai si la partie est finit, faux sinon
+	 */
 	private boolean finitVertical(Couleur couleur) {
 		
 		//pour toutes les colonnes
@@ -232,15 +309,30 @@ public class Plateau {
 		return false;
 	}
 
+	/***
+	 * getter de la largeur de la grille
+	 * @return la largeur
+	 */
 	public int getDimensionX() {
 		return dimensionX;
 	}
 
+	/***
+	 * getter d'une case de la grille grâce aux coordonnées
+	 * @param positionX l'index de la largeur
+	 * @param positionY l'index de la hauteur
+	 * @return le jeton qui se situe dans la case, null si la case est vide
+	 */
 	public Jeton getCase(int positionX, int positionY) {
 		return plateau[positionX][positionY];
 	}
 
-	
+	/***
+	 * permet d'évaluer le score d'une grille en maximisant les coups qui avantagent le joueur donnée en paramètres
+	 * cette méthode fait la sommet de l'évaluation de tous les quadruplets de la grille
+	 * @param joueur le joueur que l'on évalue dans notre grille
+	 * @return un entier qui peut être négatif
+	 */
 	public int evaluer(Joueur joueur) {
 		
 		ArrayList<Jeton[]> quadruplets = new ArrayList<Jeton[]>();
@@ -255,6 +347,10 @@ public class Plateau {
 		return somme;
 	}
 	
+	/***
+	 * permet d'ajouter tous les quadruplets de la grille
+	 * @return la liste de tous les quadruplets
+	 */
 	private ArrayList<Jeton[]> ajouterQuadruplets() {
 		
 		ArrayList<Jeton[]> copy = new ArrayList<Jeton[]>();
@@ -267,6 +363,10 @@ public class Plateau {
 		return copy;
 	}
 
+	/***
+	 * trouve tous les qudruplets en diagonal descendante
+	 * @return la liste de tous les quadruplets concernés
+	 */
 	private ArrayList<Jeton[]> ajouterQuadrupletsDiagonalDescendants(ArrayList<Jeton[]> quadruplets) {
 		ArrayList<Jeton[]> copy = (ArrayList<Jeton[]>) quadruplets.clone();
 		
@@ -289,6 +389,10 @@ public class Plateau {
 		return copy;
 	}
 
+	/***
+	 * trouve tous les qudruplets en diagonal montante
+	 * @return la liste de tous les quadruplets concernés
+	 */
 	private ArrayList<Jeton[]> ajouterQuadrupletsDiagonalMontants(ArrayList<Jeton[]> quadruplets) {
 		ArrayList<Jeton[]> copy = (ArrayList<Jeton[]>) quadruplets.clone();
 		
@@ -311,6 +415,10 @@ public class Plateau {
 		return copy;
 	}
 
+	/***
+	 * trouve tous les qudruplets en vertical
+	 * @return la liste de tous les quadruplets concernés
+	 */
 	private ArrayList<Jeton[]> ajouterQuadrupletsVertical(ArrayList<Jeton[]> quadruplets) {
 		ArrayList<Jeton[]> copy = (ArrayList<Jeton[]>) quadruplets.clone();
 		
@@ -333,6 +441,10 @@ public class Plateau {
 		return copy;
 	}
 
+	/***
+	 * trouve tous les qudruplets en horizontal
+	 * @return la liste de tous les quadruplets concernés
+	 */
 	private ArrayList<Jeton[]> ajouterQuadrupletsHorizontal(ArrayList<Jeton[]> quadruplets) {
 		ArrayList<Jeton[]> copy = (ArrayList<Jeton[]>) quadruplets.clone();
 		
@@ -355,6 +467,12 @@ public class Plateau {
 		return copy;
 	}
 
+	/***
+	 * permet de donner une valeur à un quadruplet par rapport au nombre de vides, de jetons d'adversaire et de nos jetons
+	 * @param joueur le joueur qui fait l'évaluation des quadruplets
+	 * @param jetons la liste des jetons (4 en l'occurence) qui composent le quadruplet
+	 * @return un score que représente un quadruplet
+	 */
 	private int evaluerQuadruplet(Joueur joueur, Jeton[] jetons) {
 		
 		int nbJetonCorrect = 0;
