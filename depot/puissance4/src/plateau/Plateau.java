@@ -316,6 +316,14 @@ public class Plateau {
 	public int getDimensionX() {
 		return dimensionX;
 	}
+	
+	/***
+	 * getter de la heuteur de la grille
+	 * @return la largeur
+	 */
+	public int getDimensionY() {
+		return dimensionY;
+	}
 
 	/***
 	 * getter d'une case de la grille grâce aux coordonnées
