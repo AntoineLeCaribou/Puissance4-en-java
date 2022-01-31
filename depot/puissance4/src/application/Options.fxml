@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane fx:id="fond" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControlleurOptions">
+<AnchorPane fx:id="fond" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControlleurOptions">
    <children>
       <Button layoutX="334.0" layoutY="429.0" mnemonicParsing="false" onAction="#appliquer" prefHeight="39.0" prefWidth="111.0" text="Appliquer" />
       <Button layoutX="518.0" layoutY="429.0" mnemonicParsing="false" onAction="#retour" prefHeight="39.0" prefWidth="111.0" text="Retour" />

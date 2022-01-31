@@ -30,8 +30,8 @@ public class ControlleurPrincipal {
 		sceneOptions(e);
 	}
 
-	public void jouer(ActionEvent e) {
-		System.out.println("jouer");
+	public void jouer(ActionEvent e) throws IOException {
+		sceneChoixJoueurs(e);
 	}
 	
 	private void sceneOptions(ActionEvent e) throws IOException {
@@ -47,16 +47,15 @@ public class ControlleurPrincipal {
 		stage.show();
 	}
 	
-	private void sceneJeu(ActionEvent e) throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("ChoixJoueur.fxml"));
+	private void sceneChoixJoueurs(ActionEvent e) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("ChoixJoueurs.fxml"));
 		root = loader.load();
 		stage = (Stage)((Node)e.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.setTitle("Puissance 4 - Choix Des Joueurs");
-		ControlleurOptions controlleurOptions = loader.getController();
-		controlleurOptions.resetBoutonModeNuit();
-		controlleurOptions.setColorBG(Preferences.getColorModeNuit());
+		ControlleurChoixJoueurs controlleurChoixJoueurs = loader.getController();
+		controlleurChoixJoueurs.setColorBG(Preferences.getColorModeNuit());
 		stage.show();
 	}
 	
