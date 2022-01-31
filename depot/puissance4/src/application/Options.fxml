@@ -11,13 +11,13 @@
 <AnchorPane fx:id="fond" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControlleurOptions">
    <children>
       <Button layoutX="334.0" layoutY="429.0" mnemonicParsing="false" onAction="#appliquer" prefHeight="39.0" prefWidth="111.0" text="Appliquer" />
-      <Button layoutX="518.0" layoutY="429.0" mnemonicParsing="false" onAction="#retour" prefHeight="39.0" prefWidth="111.0" text="Quitter" />
+      <Button layoutX="518.0" layoutY="429.0" mnemonicParsing="false" onAction="#retour" prefHeight="39.0" prefWidth="111.0" text="Retour" />
       <ToggleButton fx:id="boutonModeNuit" layoutX="436.0" layoutY="222.0" mnemonicParsing="false" text="ModeNuit" />
       <MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="960.0">
          <menus>
             <Menu mnemonicParsing="false" text="Fichier">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Quitter" />
+                  <MenuItem mnemonicParsing="false" onAction="#barreQuitter" text="Quitter" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Aide">
