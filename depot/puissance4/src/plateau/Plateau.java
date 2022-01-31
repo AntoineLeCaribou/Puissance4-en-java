@@ -40,6 +40,8 @@ public class Plateau {
 	
 	/***
 	 * constructeur du plateau, permet d'instancier la grille avec une taille personnalisée
+	 * @param dimX largeur du plateau
+	 * @param dimY hauteur du plateau
 	 */
 	public Plateau(int dimX, int dimY) {
 		this.dimensionX = dimX;
@@ -315,6 +317,14 @@ public class Plateau {
 	 */
 	public int getDimensionX() {
 		return dimensionX;
+	}
+	
+	/***
+	 * getter de la heuteur de la grille
+	 * @return la largeur
+	 */
+	public int getDimensionY() {
+		return dimensionY;
 	}
 
 	/***

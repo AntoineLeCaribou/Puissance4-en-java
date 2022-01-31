@@ -6,13 +6,28 @@ import java.util.Random;
 import jeton.Jeton;
 import plateau.Plateau;
 
+/***
+ * modélise un bot idiot qui peut gagner s'il a de la chance
+ * @author antoi
+ */
 public class OrdinateurAleatoireUnPeuIntelligent extends Joueur{
 
+	/***
+	 * constructeur de ce bot
+	 * @param pseudo pseudonyme du bot
+	 * @param jeton jeton que va utiliser ce bot
+	 */
 	public OrdinateurAleatoireUnPeuIntelligent(String pseudo, Jeton jeton) {
 		super(pseudo, jeton);
 	}
 
 	@Override
+	/***
+	 * si le bot a un quadruplet qui manque un jeton de sa couleur, alors il va jouer le coup gagnant
+	 * sinon va faire comme le bot precedent,
+	 * cad qu'il va trouver toutes les colonnes valides et il va en choisir une aléatoirement
+	 * @return la colonne que le bot aura choisit
+	 */
 	public int ChoisirColonne(Plateau plateau) {
 		
 		//on circule dans les ligne

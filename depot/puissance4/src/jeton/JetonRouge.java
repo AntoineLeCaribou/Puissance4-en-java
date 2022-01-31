@@ -16,6 +16,7 @@ public class JetonRouge extends Jeton{
 	
 	/***
 	 * contructeur d'un jeton de couleur rouge, ne génére pas son parent (pour éviter une boucle infini)
+	 * @param nePasGenererContraire sert juste à créer un autre constructeur
 	 */
 	public JetonRouge(boolean nePasGenererContraire) {
 		super(Couleur.Rouge, null);

@@ -5,10 +5,24 @@ import java.util.ArrayList;
 import jeton.Jeton;
 import plateau.Plateau;
 
+/***
+ * le bot le plus fort mais aussi le plus lent, il utilise l'algo MinMax
+ * à l'instar du bot précédent il va calculer n coup en avance, à partir de n=8 les calculs cassent le rythme
+ * @author antoi
+ */
 public class OrdinateurMinMaxDepthN extends Joueur {
 
+	/***
+	 * constante qui correspond à la profondeur de coups max que peut évaluer le bot
+	 */
 	private final int profondeurMax;
 	
+	/***
+	 * à contrario des autres constructeurs, celui-ci prend la profondeurMax que le bot utilisera
+	 * @param pseudo le pseudo du bot
+	 * @param jeton le jeton que le bot placera
+	 * @param profondeur la profondeur max de l'algo de parcours en profondeur
+	 */
 	public OrdinateurMinMaxDepthN(String pseudo, Jeton jeton, int profondeur) {
 		super(pseudo, jeton);
 		this.profondeurMax = profondeur;
@@ -22,6 +36,11 @@ public class OrdinateurMinMaxDepthN extends Joueur {
 		return choix;
 	}
 	
+	/***
+	 * initialise le MinMax
+	 * @param plateau le plateau que l'on va utiliser pour tester les possibilités
+	 * @return la meilleur colonne, celle qu'a choisit le bot
+	 */
 	private int choisirMeilleurColonne(Plateau plateau) {
 
 		//ArrayList<Plateau> eventualites = new ArrayList<Plateau>();
@@ -29,6 +48,13 @@ public class OrdinateurMinMaxDepthN extends Joueur {
 		return meilleurScore.getIndex();
 	}
 
+	/***
+	 * 
+	 * @param plateau le plateau que l'on va utiliser pour tester les possibilités
+	 * @param profondeurActuelle la profondeur dans laquelle on se trouve, ne peut pas dépasser profondeurMax
+	 * @param index l'index de la colonne dans laquelle on vient de jouer
+	 * @return le score de la meilleur grille, celle qui avantagait le plus ce bot
+	 */
 	private Score calculerScoreProchainPlateau(Plateau plateau, int profondeurActuelle, int index) {
 		
 		//si c'est le max que l'on explore

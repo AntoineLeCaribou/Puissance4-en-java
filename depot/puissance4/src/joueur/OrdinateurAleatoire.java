@@ -6,8 +6,17 @@ import java.util.Random;
 import jeton.Jeton;
 import plateau.Plateau;
 
+/***
+ * modélise un bot vraiment idiot
+ * @author antoi
+ */
 public class OrdinateurAleatoire extends Joueur {
 
+	/***
+	 * constructeur de ce bot
+	 * @param pseudo pseudonyme du bot
+	 * @param jeton jeton que va utiliser ce bot
+	 */
 	public OrdinateurAleatoire(String pseudo, Jeton jeton) {
 		super(pseudo, jeton);
 	}
@@ -21,6 +30,12 @@ public class OrdinateurAleatoire extends Joueur {
 		
 	}
 
+	/***
+	 * le bot récupère toutes les colonnes disponibles
+	 * il prend ensuite une colonne aléatoirement
+	 * @param plateau la grille concernée par cette opération
+	 * @return la colonne que le bot a choisit [0,6]
+	 */
 	private int choisirColonneAleatoire(Plateau plateau) {
 		
 		int choix = -1;
