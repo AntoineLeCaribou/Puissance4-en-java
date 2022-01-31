@@ -38,12 +38,12 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControlleurMainMenu">
+<AnchorPane fx:id="fond" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControlleurPrincipal">
    <children>
       <Button layoutX="395.0" layoutY="188.0" mnemonicParsing="false" onAction="#jouer" prefHeight="42.0" prefWidth="171.0" text="Jouer" />
       <Button layoutX="395.0" layoutY="272.0" mnemonicParsing="false" onAction="#option" prefHeight="42.0" prefWidth="171.0" text="Options" />
       <Button layoutX="395.0" layoutY="356.0" mnemonicParsing="false" onAction="#quitter" prefHeight="42.0" prefWidth="171.0" text="Quitter" />
-      <MenuBar layoutY="2.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="960.0">
+      <MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="960.0">
         <menus>
           <Menu mnemonicParsing="false" text="Fichier">
             <items>
