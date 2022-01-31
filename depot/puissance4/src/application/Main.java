@@ -25,7 +25,7 @@ public class Main extends Application {
 			stage.getIcons().add(icon);
 			stage.setTitle("Puissance 4 - Main menu");
 			stage.setWidth(960);
-			stage.setHeight(540);
+			stage.setHeight(600);
 			stage.setResizable(false);
 			stage.setScene(scene);
 			stage.show();

@@ -68,10 +68,15 @@
             <Font name="Amiri Quran" size="21.0" />
          </font>
       </Text>
-      <Circle fx:id="jetonRouge" fill="RED" layoutX="339.0" layoutY="381.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="jetonJaune" fill="#f6ff00" layoutX="628.0" layoutY="381.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="jetonOrange" fill="#ffab4c" layoutX="481.0" layoutY="381.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
-      <Button layoutX="426.0" layoutY="460.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="111.0" text="Commencer" />
-      <Button layoutX="14.0" layoutY="37.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="&lt;-" />
+      <Circle fx:id="jetonRouge" fill="RED" layoutX="339.0" layoutY="381.0" onMousePressed="#choixJetonRouge" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="jetonJaune" fill="#f6ff00" layoutX="628.0" layoutY="381.0" onMousePressed="#choixJetonJaune" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="jetonOrange" fill="#ffab4c" layoutX="481.0" layoutY="381.0" onMousePressed="#choixJetonOrange" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
+      <Button layoutX="426.0" layoutY="460.0" mnemonicParsing="false" onAction="#commencer" prefHeight="51.0" prefWidth="111.0" text="Commencer" />
+      <Button layoutX="14.0" layoutY="37.0" mnemonicParsing="false" onAction="#retour" prefHeight="50.0" prefWidth="50.0" text="&lt;-" />
+      <Text fx:id="textJetonOrange" layoutX="468.0" layoutY="402.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="?" textAlignment="CENTER">
+         <font>
+            <Font size="59.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

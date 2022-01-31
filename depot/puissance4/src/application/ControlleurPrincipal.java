@@ -56,6 +56,7 @@ public class ControlleurPrincipal {
 		stage.setTitle("Puissance 4 - Choix Des Joueurs");
 		ControlleurChoixJoueurs controlleurChoixJoueurs = loader.getController();
 		controlleurChoixJoueurs.setColorBG(Preferences.getColorModeNuit());
+		controlleurChoixJoueurs.resetJetons();
 		stage.show();
 	}
 	
