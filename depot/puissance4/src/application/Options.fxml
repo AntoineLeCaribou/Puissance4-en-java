@@ -13,7 +13,7 @@
       <Button layoutX="334.0" layoutY="429.0" mnemonicParsing="false" onAction="#appliquer" prefHeight="39.0" prefWidth="111.0" text="Appliquer" />
       <Button layoutX="518.0" layoutY="429.0" mnemonicParsing="false" onAction="#retour" prefHeight="39.0" prefWidth="111.0" text="Quitter" />
       <ToggleButton fx:id="boutonModeNuit" layoutX="436.0" layoutY="222.0" mnemonicParsing="false" text="ModeNuit" />
-      <MenuBar layoutY="2.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="960.0">
+      <MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="960.0">
          <menus>
             <Menu mnemonicParsing="false" text="Fichier">
                <items>

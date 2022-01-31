@@ -57,4 +57,8 @@ public class ControlleurOptions {
 		else if (couleur == Color.WHITE)
 			fond.setStyle("-fx-background-color: #ffffff");
 	}
+	
+	public void barreQuitter(ActionEvent e) {
+		ControlleurBarreSuperieur.quitter(e);
+	}
 }
