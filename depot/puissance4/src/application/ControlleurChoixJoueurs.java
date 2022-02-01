@@ -1,13 +1,18 @@
 package application;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -22,16 +27,25 @@ public class ControlleurChoixJoueurs {
 	
 	private int numJoueurQuiCommence;
 	
-	@FXML
-	private AnchorPane fond;
-	@FXML
-	private Circle jetonRouge;
-	@FXML
-	private Circle jetonJaune;
-	@FXML
-	private Circle jetonOrange;
-	@FXML
-	private Text textJetonOrange;
+	@FXML private AnchorPane fond;
+	
+	@FXML private Circle jetonRouge;
+	@FXML private Circle jetonJaune;
+	@FXML private Circle jetonOrange;
+	
+	@FXML private Text textJetonOrange;
+	
+	@FXML private ChoiceBox<String> mode1;
+	@FXML private ChoiceBox<String> mode2;
+	
+	public void initChoiceBoxes() {
+		
+		mode1.getItems().addAll("Humain","Bot très facile","Bot facile", "Bot moyen", "Bot difficile");
+		mode2.getItems().addAll("Humain","Bot très facile","Bot facile", "Bot moyen", "Bot difficile");
+		
+		mode1.setValue("Humain");
+		mode2.setValue("Humain");
+	}
 	
 	public void setColorBG(Color couleur) {
 		if (couleur == Color.BLACK)

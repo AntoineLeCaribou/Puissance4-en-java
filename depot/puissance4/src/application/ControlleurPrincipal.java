@@ -57,6 +57,7 @@ public class ControlleurPrincipal {
 		ControlleurChoixJoueurs controlleurChoixJoueurs = loader.getController();
 		controlleurChoixJoueurs.setColorBG(Preferences.getColorModeNuit());
 		controlleurChoixJoueurs.resetJetons();
+		controlleurChoixJoueurs.initChoiceBoxes();
 		stage.show();
 	}
 	
