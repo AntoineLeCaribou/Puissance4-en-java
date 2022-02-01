@@ -11,8 +11,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.SingleSelectionModel;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -34,6 +37,9 @@ public class ControlleurChoixJoueurs {
 	@FXML private Circle jetonOrange;
 	
 	@FXML private Text textJetonOrange;
+	
+	@FXML private TextField pseudo1;
+	@FXML private TextField pseudo2;
 	
 	@FXML private ChoiceBox<String> mode1;
 	@FXML private ChoiceBox<String> mode2;
@@ -71,9 +77,22 @@ public class ControlleurChoixJoueurs {
 	}
 	
 	public void commencer(ActionEvent e) throws IOException {
-		sceneJeu(e);
+		try {
+			verification();
+			sceneJeu(e);
+		} catch (Exception e1) {
+			System.out.println("erreur verification joueurs");
+		}
 	}
 	
+	private void verification() throws Exception {
+		
+		if (pseudo1.getText().isBlank() || pseudo2.getText().isBlank()) {
+			popupErreur("Veuillez entrer le pseudonyme des joueurs");
+			throw new Exception();
+		}
+	}
+
 	private void sceneJeu(ActionEvent e) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Jeu.fxml"));
 		root = loader.load();
@@ -116,5 +135,13 @@ public class ControlleurChoixJoueurs {
 	
 	public void resetJetons() {
 		choixJetonOrange();
+	}
+	
+	private void popupErreur(String message) {
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("Erreur");
+		alert.setHeaderText("Noms vides");
+		alert.setContentText(message);
+		alert.showAndWait();
 	}
 }

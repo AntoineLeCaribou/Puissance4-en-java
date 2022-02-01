@@ -12,7 +12,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane fx:id="fond" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControlleurChoixJoueurs">
    <children>
       <MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="960.0">
@@ -36,13 +35,13 @@
       </MenuBar>
       <ChoiceBox fx:id="mode1" layoutX="260.0" layoutY="206.0" prefWidth="150.0" />
       <ChoiceBox fx:id="mode2" layoutX="550.0" layoutY="206.0" prefWidth="150.0" />
-      <TextField fx:id="pseudo1" alignment="CENTER" layoutX="261.0" layoutY="172.0" promptText="pseudo joueur 1" />
+      <TextField fx:id="pseudo1" alignment="CENTER" layoutX="261.0" layoutY="172.0" promptText="pseudo1" />
       <Text layoutX="291.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur 1" textAlignment="CENTER" wrappingWidth="88.099609375">
          <font>
             <Font name="Amiri Quran" size="21.0" />
          </font>
       </Text>
-      <TextField fx:id="pseudo2" alignment="CENTER" layoutX="551.0" layoutY="172.0" promptText="pseudo joueur 2" />
+      <TextField fx:id="pseudo2" alignment="CENTER" layoutX="551.0" layoutY="172.0" promptText="pseudo2" />
       <Text layoutX="581.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur 2" textAlignment="CENTER" wrappingWidth="88.099609375">
          <font>
             <Font name="Amiri Quran" size="21.0" />
