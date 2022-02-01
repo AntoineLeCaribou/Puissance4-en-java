@@ -39,7 +39,8 @@ public class Main {
 		
 		int ordre = 1; //le joueur qui commence est al�atoire
 		@SuppressWarnings("unused")
-		Partie partie = new Partie(joueur1, joueur2, ordre);
+		Partie partie = new Partie(joueur1, joueur2, ordre, true);
+		partie.jouer();
 	}
 
 }

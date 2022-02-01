@@ -21,12 +21,24 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import jeton.Jeton;
+import jeton.JetonJaune;
+import jeton.JetonRouge;
+import jeu.Partie;
+import joueur.Humain;
+import joueur.Joueur;
+import joueur.OrdinateurAleatoire;
+import joueur.OrdinateurAleatoireUnPeuIntelligent;
+import joueur.OrdinateurMinMaxDepthN;
 
 public class ControlleurChoixJoueurs {
 
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
+	
+	private Joueur joueur1;
+	private Joueur joueur2;
 	
 	private int numJoueurQuiCommence;
 	
@@ -43,6 +55,8 @@ public class ControlleurChoixJoueurs {
 	
 	@FXML private ChoiceBox<String> mode1;
 	@FXML private ChoiceBox<String> mode2;
+	
+	@FXML private Partie partie;
 	
 	public void initChoiceBoxes() {
 		
@@ -79,16 +93,52 @@ public class ControlleurChoixJoueurs {
 	public void commencer(ActionEvent e) throws IOException {
 		try {
 			verification();
+			creationPartie();
 			sceneJeu(e);
 		} catch (Exception e1) {
 			System.out.println("erreur verification joueurs");
 		}
 	}
 	
+	private void creationPartie() throws Exception {
+		joueur1 = creerJoueur(mode1.getValue(), pseudo1.getText(), new JetonRouge());
+		joueur2 = creerJoueur(mode2.getValue(), pseudo2.getText(), new JetonJaune());
+		partie = new Partie(joueur1, joueur1, numJoueurQuiCommence, false);
+	}
+
+	private Joueur creerJoueur(String nom, String pseudo, Jeton jeton) throws Exception {
+		switch (nom) {
+			
+		case "Humain":
+			return new Humain(nom, jeton);
+		
+		case "Bot très facile":
+			return new OrdinateurAleatoire(pseudo, jeton);
+			
+		case "Bot facile":
+			return new OrdinateurAleatoireUnPeuIntelligent(pseudo, jeton);
+			
+		case "Bot moyen":
+			return new OrdinateurMinMaxDepthN(pseudo, jeton, 1);
+			
+		case "Bot difficile":
+			return new OrdinateurMinMaxDepthN(pseudo, jeton, 6);
+		
+		default:
+			popupErreur("type introuvable", "type de joueur introuvable");
+			throw new Exception();
+		}
+	}
+
 	private void verification() throws Exception {
 		
 		if (pseudo1.getText().isBlank() || pseudo2.getText().isBlank()) {
-			popupErreur("Veuillez entrer le pseudonyme des joueurs");
+			popupErreur("Pseudonymes vide", "Veuillez entrer le pseudonyme des joueurs");
+			throw new Exception();
+		}
+		
+		if (pseudo1.getText().contentEquals(pseudo2.getText())) {
+			popupErreur("Pseudonymes égaux", "Les deux joueurs possèdent le même pseudonyme");
 			throw new Exception();
 		}
 	}
@@ -137,10 +187,10 @@ public class ControlleurChoixJoueurs {
 		choixJetonOrange();
 	}
 	
-	private void popupErreur(String message) {
+	private void popupErreur(String header, String message) {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle("Erreur");
-		alert.setHeaderText("Noms vides");
+		alert.setHeaderText(header);
 		alert.setContentText(message);
 		alert.showAndWait();
 	}
