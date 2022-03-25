@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"joueur","c":"OrdinateurMinMaxDepth1","l":"ChoisirColonne(Plateau)","u":"ChoisirColonne(plateau.Plateau)"},{"p":"joueur","c":"OrdinateurMinMaxDepth1","l":"OrdinateurMinMaxDepth1(String, Jeton)","u":"%3Cinit%3E(java.lang.String,jeton.Jeton)"}];updateSearchResults();
