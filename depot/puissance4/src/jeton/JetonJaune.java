@@ -8,7 +8,7 @@ package jeton;
 public class JetonJaune extends Jeton{
 
 	/***
-	 * contructeur d'un jeton de couleur jaune, génére naturellement son inverse (un jeton rouge) dans sont parent
+	 * contructeur d'un jeton de couleur jaune, génére naturellement son inverse (un jeton rouge) dans son parent
 	 */
 	public JetonJaune() {
 		super(Couleur.Jaune, new JetonRouge(true));

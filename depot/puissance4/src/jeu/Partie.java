@@ -31,23 +31,24 @@ public class Partie {
 	 */
 	private Plateau plateau;
 	
+	private boolean console;
+	
 	/***
 	 * le constructeur de la partie
 	 * @param joueur1 le premier joueur
 	 * @param joueur2 le deuxième joueur
 	 * @param ordre l'ordre de jeu, si -1 alors le joueur qui commence est aléatoire
 	 */
-	public Partie(Joueur joueur1, Joueur joueur2, int ordre) {
+	public Partie(Joueur joueur1, Joueur joueur2, int ordre, boolean console) {
 		
 		joueurs = new Joueur[] {joueur1, joueur2};
 		plateau = new Plateau();
+		this.console = console;
 		
 		//si un joueur aleatoire commence
 		if (ordre == -1) {
 			this.ordre = new Random().nextInt(2);
 		}
-		
-		jouer();
 	}
 
 	/***
@@ -55,7 +56,7 @@ public class Partie {
 	 * cad que tant que personne n'a gagné par puissance 4 ou que la grille n'est pas remplie, la partie continue à faire jouer les joueurs consécutivement
 	 * une fois terminée elle affiche le gagnant (ou personne si égalité) et se termine
 	 */
-	private void jouer() {
+	public void jouer() {
 		
 		Joueur joueurActif = null;
 		
@@ -64,7 +65,8 @@ public class Partie {
 			
 			int choix = -1;
 			while(choix == -1) {
-				plateau.afficherPlateau();
+				if (console)
+					plateau.afficherPlateau();
 				choix = joueurActif.ChoisirColonne(plateau);
 			}
 			
@@ -75,13 +77,15 @@ public class Partie {
 			prochainTour();
 		}
 		
-		plateau.afficherPlateau();
+		if (console) {
+			plateau.afficherPlateau();
 		
-		//affichage dans la console de la phrase qui conclut la partie
-		if (plateau.estFinit(joueurActif) == Gagnant.GrilleCompletee)
-			System.out.println(plateau.estFinit(joueurActif).getPhrase());
-		else
-			System.out.println(joueurActif.getPseudo() + plateau.estFinit(joueurActif).getPhrase());
+			//affichage dans la console de la phrase qui conclut la partie
+			if (plateau.estFinit(joueurActif) == Gagnant.GrilleCompletee)
+				System.out.println(plateau.estFinit(joueurActif).getPhrase());
+			else
+				System.out.println(joueurActif.getPseudo() + plateau.estFinit(joueurActif).getPhrase());
+		}
 	}
 	
 	/***
